@@ -1,0 +1,13 @@
+
+        // The real reason to switch to this->setName(name) has nothing to do with what's legal — it's a design choice. Direct assignment bypasses your validation entirely; routing through the setter reuses the one place you already wrote the "is this a legal value" logic, instead of duplicating it. That's it. Compiler doesn't care either way; your validation rules care.
+
+        // this -> name = name;
+        // this -> health = health;
+        // this -> level = level;
+        // time_line = getTimeLine();                .. wrong way cause time_line is const and cannot be assigned a value after initialization
+
+        // _________________________________________________
+
+
+    
+   
