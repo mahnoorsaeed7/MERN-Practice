@@ -1,0 +1,64 @@
+const agents = [
+    {
+        id: 1,
+        name: "Aira",
+        active: true,
+        energy: 80,
+        memories: [
+            { text: "Met Kael", important: false },
+            { text: "User trust increased", important: true }
+        ]
+    },
+    {
+        id: 2,
+        name: "Kael",
+        active: true,
+        energy: 30,
+        memories: [
+            { text: "Entered city", important: false }
+        ]
+    },
+    {
+        id: 3,
+        name: "Mira",
+        active: false,
+        energy: 100,
+        memories: [
+            { text: "Learned something important", important: true }
+        ]
+    }
+];
+
+
+const agentreq = (list) => {
+    return list.filter(agent => 
+        agent.energy > 50 &&          
+        agent.active && 
+        agent.memories.length >= 1   
+    ).map(agent => ({
+    id: agent.id,
+    name: agent.name
+}));
+};
+
+const a = agentreq(agents);
+console.log(a);
+
+
+const original = {
+    name: "Aira",
+    memories: {
+        recent: ["meeting"],
+        important: ["Labyrinth"],
+        private: ["secret"]
+    }
+};
+
+const copy = { ...original };
+
+copy.name = "Nova";
+copy.memories.important.push("character engine");
+
+console.log(original.name);
+console.log(original.memories.important);
+// Aira and for sec labyrinth and i ran but they still are sharing same memory character engin was pushed back
